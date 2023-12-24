@@ -6,6 +6,7 @@ class MyColor {
   static Color purpleColor = const Color(0xff8438ff);
   static Color darkPurpleColor = const Color(0xff2F1155);
   static Color arrowBackColor = const Color(0xff45197D);
+  static Color activeColor = const Color(0xff00d68f);
   static Color arrowForwardColor = const Color(0xff363853);
   static Color isNewColor = const Color(0xffff3333);
   static Color smallTextColor = const Color(0xffbdbdbd);

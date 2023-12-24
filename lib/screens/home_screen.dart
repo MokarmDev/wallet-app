@@ -150,7 +150,7 @@ class BuildAppBar extends StatelessWidget {
               Text(
                 'Active',
                 style: TextStyles.textTexStyle(
-                  color: MyColor.smallTextColor,
+                  color: MyColor.activeColor,
                   fontSize: 16,
                 ),
               ),
@@ -177,7 +177,7 @@ class TopCard extends StatelessWidget {
             context, MaterialPageRoute(builder: (_) => const DetailCardView()));
       },
       child: Container(
-        width: 310,
+        width: MediaQuery.sizeOf(context).width,
         height: 160,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(50),
