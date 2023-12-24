@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wallet_app/screens/login_screen.dart';
-import 'package:wallet_app/themes/colors.dart';
+import 'package:wallet_app/themes/my_app_themes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,11 +14,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Wallet App',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: MyColor.darkPurpleColor),
-        useMaterial3: true,
-      ),
-      home: const Scaffold(
+      theme: MyAppThemes.lightTheme,
+      darkTheme: MyAppThemes.darkTheme,
+      themeMode: ThemeMode.system,
+      home: Scaffold(
         body: LoginView(),
       ),
     );
