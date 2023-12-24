@@ -51,7 +51,7 @@ class DetailCardView extends StatelessWidget {
                   child: Text(
                     'Delete Card',
                     style: TextStyles.textTexStyle(
-                      color: MyColor.primaryColor,
+                      color: Colors.redAccent,
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                     ),

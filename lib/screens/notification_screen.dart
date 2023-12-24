@@ -41,7 +41,7 @@ class NotificationView extends StatelessWidget {
                 child: Text(
                   'New',
                   style: TextStyles.titleTexStyle(
-                    fontSize: 16,
+                    fontSize: 20,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -72,7 +72,7 @@ class NotificationView extends StatelessWidget {
                     child: Text(
                       'Recent',
                       style: TextStyles.titleTexStyle(
-                        fontSize: 16,
+                        fontSize: 20,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
