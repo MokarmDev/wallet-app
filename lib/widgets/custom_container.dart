@@ -14,7 +14,7 @@ class CustomContainer extends StatelessWidget {
   const CustomContainer({
     super.key,
     this.width = 130,
-    this.height = 60,
+    this.height = 50,
     this.borderRadius = 15,
     required this.color,
     required this.imagePath,
