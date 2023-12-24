@@ -32,9 +32,9 @@ class _MainViewState extends State<MainView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _widgetOptions.elementAt(_selectedIndex),
+      body: _widgetOptions[_selectedIndex],
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
         child: DotNavigationBar(
           currentIndex: _selectedIndex,
           dotIndicatorColor: Colors.white,
