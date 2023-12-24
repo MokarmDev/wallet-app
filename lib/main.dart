@@ -13,7 +13,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Wallet App',
-      home: Scaffold(
+      theme: ThemeData(
+        useMaterial3: true,
+      ),
+      home: const Scaffold(
         body: LoginView(),
       ),
     );
