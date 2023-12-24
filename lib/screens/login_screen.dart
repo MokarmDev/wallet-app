@@ -3,9 +3,9 @@ import 'package:gap/gap.dart';
 import 'package:wallet_app/screens/main_view.dart';
 import 'package:wallet_app/screens/sign_up%20_screen.dart';
 import 'package:wallet_app/themes/colors.dart';
+import 'package:wallet_app/themes/input_decorations.dart';
 import 'package:wallet_app/themes/text_styles.dart';
 import 'package:wallet_app/widgets/custom_container.dart';
-import 'package:wallet_app/widgets/input_decorations.dart';
 
 import '../widgets/custom_button.dart';
 

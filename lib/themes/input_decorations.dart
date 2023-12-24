@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../themes/colors.dart';
-import '../themes/text_styles.dart';
+import 'colors.dart';
+import 'text_styles.dart';
 
 class InputDecorations {
   static InputDecoration buildInputDecoration(
