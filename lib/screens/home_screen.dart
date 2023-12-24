@@ -9,9 +9,14 @@ import 'package:wallet_app/widgets/custom_circle_card.dart';
 import '../widgets/custom_builder_list_payment.dart';
 import '../widgets/custom_section_title.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
 
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -162,7 +167,7 @@ class BuildAppBar extends StatelessWidget {
           const CircleAvatar(
             radius: 30,
             backgroundImage: AssetImage('assets/images/profile.png'),
-          )
+          ),
         ],
       ),
     );
