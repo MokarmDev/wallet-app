@@ -122,6 +122,7 @@ class _ProfileViewState extends State<ProfileView> {
                 onTap: () {},
                 child: const CustomCircleCard(
                   image: 'assets/icons/delete.png',
+                  colorImage: Colors.redAccent,
                   height: 65,
                   width: 65,
                 ),
@@ -130,7 +131,7 @@ class _ProfileViewState extends State<ProfileView> {
               Text(
                 'Delete Account',
                 style: TextStyles.textTexStyle(
-                  color: MyColor.primaryColor,
+                  color: Colors.redAccent,
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
                 ),
