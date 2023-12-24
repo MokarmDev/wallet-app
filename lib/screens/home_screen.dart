@@ -35,57 +35,6 @@ class HomeView extends StatelessWidget {
                   Column(
                     children: [
                       CustomCircleCard(
-                        image: 'assets/icons/transfer.png',
-                        onPressed: () {},
-                      ),
-                      const Gap(15),
-                      Text(
-                        'Transfer',
-                        style: TextStyles.textTexStyle(
-                          color: MyColor.purpleColor,
-                          fontSize: 13,
-                        ),
-                      )
-                    ],
-                  ),
-                  const Gap(33),
-                  Column(
-                    children: [
-                      CustomCircleCard(
-                        image: 'assets/icons/export.png',
-                        onPressed: () {},
-                      ),
-                      const Gap(15),
-                      Text(
-                        'Payment',
-                        style: TextStyles.textTexStyle(
-                          color: MyColor.purpleColor,
-                          fontSize: 13,
-                        ),
-                      )
-                    ],
-                  ),
-                  const Gap(33),
-                  Column(
-                    children: [
-                      CustomCircleCard(
-                        image: 'assets/icons/money.png',
-                        onPressed: () {},
-                      ),
-                      const Gap(15),
-                      Text(
-                        'Payout',
-                        style: TextStyles.textTexStyle(
-                          color: MyColor.purpleColor,
-                          fontSize: 13,
-                        ),
-                      )
-                    ],
-                  ),
-                  const Gap(33),
-                  Column(
-                    children: [
-                      CustomCircleCard(
                         image: 'assets/icons/add_circle.png',
                         onPressed: () {
                           Navigator.push(
@@ -104,16 +53,70 @@ class HomeView extends StatelessWidget {
                       )
                     ],
                   ),
+                  const Gap(40),
+                  Column(
+                    children: [
+                      CustomCircleCard(
+                        image: 'assets/icons/transfer.png',
+                        onPressed: () {},
+                      ),
+                      const Gap(15),
+                      Text(
+                        'Transfer',
+                        style: TextStyles.textTexStyle(
+                          color: MyColor.purpleColor,
+                          fontSize: 13,
+                        ),
+                      )
+                    ],
+                  ),
+                  const Gap(40),
+                  Column(
+                    children: [
+                      CustomCircleCard(
+                        image: 'assets/icons/export.png',
+                        onPressed: () {},
+                      ),
+                      const Gap(15),
+                      Text(
+                        'Payment',
+                        style: TextStyles.textTexStyle(
+                          color: MyColor.purpleColor,
+                          fontSize: 13,
+                        ),
+                      )
+                    ],
+                  ),
+                  const Gap(40),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        CustomCircleCard(
+                          image: 'assets/icons/money.png',
+                          onPressed: () {},
+                        ),
+                        const Gap(15),
+                        Text(
+                          'Payout',
+                          style: TextStyles.textTexStyle(
+                            color: MyColor.purpleColor,
+                            fontSize: 13,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
             const SliverToBoxAdapter(
               child: Gap(25),
             ),
-            const SliverToBoxAdapter(
+            SliverToBoxAdapter(
               child: CustomSectionTitle(
                 title: 'Last Transaction',
                 subTitle: 'View All',
+                onTap: () {},
               ),
             ),
             const SliverToBoxAdapter(
