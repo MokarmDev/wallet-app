@@ -34,75 +34,25 @@ class _HomeViewState extends State<HomeView> {
             const SliverToBoxAdapter(
               child: Gap(25),
             ),
-            SliverToBoxAdapter(
-              child: Row(
-                children: [
-                  Column(
-                    children: [
-                      CustomCircleCard(
-                        image: 'assets/icons/add_circle.png',
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (_) => const AddCardPaymentView()));
-                        },
-                      ),
-                      const Gap(15),
-                      Text(
-                        'Top up',
-                        style: TextStyles.textTexStyle(
-                          color: MyColor.purpleColor,
-                          fontSize: 13,
-                        ),
-                      )
-                    ],
-                  ),
-                  const Gap(40),
-                  Column(
-                    children: [
-                      CustomCircleCard(
-                        image: 'assets/icons/transfer.png',
-                        onPressed: () {},
-                      ),
-                      const Gap(15),
-                      Text(
-                        'Transfer',
-                        style: TextStyles.textTexStyle(
-                          color: MyColor.purpleColor,
-                          fontSize: 13,
-                        ),
-                      )
-                    ],
-                  ),
-                  const Gap(40),
-                  Column(
-                    children: [
-                      CustomCircleCard(
-                        image: 'assets/icons/export.png',
-                        onPressed: () {},
-                      ),
-                      const Gap(15),
-                      Text(
-                        'Payment',
-                        style: TextStyles.textTexStyle(
-                          color: MyColor.purpleColor,
-                          fontSize: 13,
-                        ),
-                      )
-                    ],
-                  ),
-                  const Gap(40),
-                  Expanded(
-                    child: Column(
+            SliverList.list(
+              children: [
+                Row(
+                  children: [
+                    Column(
                       children: [
                         CustomCircleCard(
-                          image: 'assets/icons/money.png',
-                          onPressed: () {},
+                          image: 'assets/icons/add_circle.png',
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) =>
+                                        const AddCardPaymentView()));
+                          },
                         ),
                         const Gap(15),
                         Text(
-                          'Payout',
+                          'Top up',
                           style: TextStyles.textTexStyle(
                             color: MyColor.purpleColor,
                             fontSize: 13,
@@ -110,9 +60,62 @@ class _HomeViewState extends State<HomeView> {
                         )
                       ],
                     ),
-                  ),
-                ],
-              ),
+                    const Gap(40),
+                    Column(
+                      children: [
+                        CustomCircleCard(
+                          image: 'assets/icons/transfer.png',
+                          onPressed: () {},
+                        ),
+                        const Gap(15),
+                        Text(
+                          'Transfer',
+                          style: TextStyles.textTexStyle(
+                            color: MyColor.purpleColor,
+                            fontSize: 13,
+                          ),
+                        )
+                      ],
+                    ),
+                    const Gap(40),
+                    Column(
+                      children: [
+                        CustomCircleCard(
+                          image: 'assets/icons/export.png',
+                          onPressed: () {},
+                        ),
+                        const Gap(15),
+                        Text(
+                          'Payment',
+                          style: TextStyles.textTexStyle(
+                            color: MyColor.purpleColor,
+                            fontSize: 13,
+                          ),
+                        )
+                      ],
+                    ),
+                    const Gap(40),
+                    Expanded(
+                      child: Column(
+                        children: [
+                          CustomCircleCard(
+                            image: 'assets/icons/money.png',
+                            onPressed: () {},
+                          ),
+                          const Gap(15),
+                          Text(
+                            'Payout',
+                            style: TextStyles.textTexStyle(
+                              color: MyColor.purpleColor,
+                              fontSize: 13,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
             const SliverToBoxAdapter(
               child: Gap(25),
