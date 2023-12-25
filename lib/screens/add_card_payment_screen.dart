@@ -81,7 +81,7 @@ class CardPayment extends StatelessWidget {
               alignment: Alignment.topLeft,
               child: Container(
                 width: 120,
-                height: 120,
+                height: 115,
                 decoration: const BoxDecoration(
                   color: Color(0xff6E34B8),
                   shape: BoxShape.circle,
