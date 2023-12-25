@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:wallet_app/screens/add_card_payment_screen.dart';
 import 'package:wallet_app/screens/detail_card_screen.dart';
 import 'package:wallet_app/themes/colors.dart';
 import 'package:wallet_app/themes/text_styles.dart';
-import 'package:wallet_app/widgets/custom_circle_card.dart';
 
 import '../widgets/custom_builder_list_payment.dart';
+import '../widgets/custom_process_card.dart';
 import '../widgets/custom_section_title.dart';
 
 class HomeView extends StatefulWidget {
@@ -35,83 +34,30 @@ class _HomeViewState extends State<HomeView> {
               child: Gap(25),
             ),
             SliverList.list(
-              children: [
+              children: const [
                 Row(
                   children: [
-                    Column(
-                      children: [
-                        CustomCircleCard(
-                          image: 'assets/icons/add_circle.png',
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (_) =>
-                                        const AddCardPaymentView()));
-                          },
-                        ),
-                        const Gap(15),
-                        Text(
-                          'Top up',
-                          style: TextStyles.textTexStyle(
-                            color: MyColor.purpleColor,
-                            fontSize: 13,
-                          ),
-                        )
-                      ],
-                    ),
-                    const Gap(40),
-                    Column(
-                      children: [
-                        CustomCircleCard(
-                          image: 'assets/icons/transfer.png',
-                          onPressed: () {},
-                        ),
-                        const Gap(15),
-                        Text(
-                          'Transfer',
-                          style: TextStyles.textTexStyle(
-                            color: MyColor.purpleColor,
-                            fontSize: 13,
-                          ),
-                        )
-                      ],
-                    ),
-                    const Gap(40),
-                    Column(
-                      children: [
-                        CustomCircleCard(
-                          image: 'assets/icons/export.png',
-                          onPressed: () {},
-                        ),
-                        const Gap(15),
-                        Text(
-                          'Payment',
-                          style: TextStyles.textTexStyle(
-                            color: MyColor.purpleColor,
-                            fontSize: 13,
-                          ),
-                        )
-                      ],
-                    ),
-                    const Gap(40),
                     Expanded(
-                      child: Column(
-                        children: [
-                          CustomCircleCard(
-                            image: 'assets/icons/money.png',
-                            onPressed: () {},
-                          ),
-                          const Gap(15),
-                          Text(
-                            'Payout',
-                            style: TextStyles.textTexStyle(
-                              color: MyColor.purpleColor,
-                              fontSize: 13,
-                            ),
-                          )
-                        ],
-                      ),
+                      child: CustomProcessCard(
+                          imagePath: 'assets/icons/add_circle.png',
+                          title: 'Top up'),
+                    ),
+                    Gap(40),
+                    Expanded(
+                      child: CustomProcessCard(
+                          imagePath: 'assets/icons/transfer.png',
+                          title: 'Transfer'),
+                    ),
+                    Gap(40),
+                    Expanded(
+                      child: CustomProcessCard(
+                          imagePath: 'assets/icons/export.png',
+                          title: 'Payment'),
+                    ),
+                    Gap(40),
+                    Expanded(
+                      child: CustomProcessCard(
+                          imagePath: 'assets/icons/money.png', title: 'Payout'),
                     ),
                   ],
                 ),
