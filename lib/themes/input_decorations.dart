@@ -4,15 +4,17 @@ import 'colors.dart';
 import 'text_styles.dart';
 
 class InputDecorations {
-  static InputDecoration buildInputDecoration(
-      {required hintText, required prefixIconPath}) {
+  static InputDecoration buildInputDecoration({
+    required hintText,
+    required prefixIconPath,
+    required color,
+  }) {
     return InputDecoration(
       hintText: hintText,
       hintStyle: TextStyles.textFiledTexStyle(),
       enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(
-              color: MyColor.textFieldColor.withOpacity(0.4), width: 2)),
+          borderSide: BorderSide(color: color, width: 2)),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(15),
       ),

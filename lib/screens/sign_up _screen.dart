@@ -75,28 +75,37 @@ class _SignUpViewState extends State<SignUpView> {
                   ],
                 ),
                 const Gap(30),
-                TextFormField(
+                TextField(
                   controller: userNameController,
                   style: TextStyle(color: MyColor.styleTextFieldColor),
                   decoration: InputDecorations.buildInputDecoration(
+                      color: AdaptiveTheme.of(context).mode.isLight
+                          ? MyColor.textFieldColor
+                          : MyColor.textFieldColor.withOpacity(0.4),
                       hintText: 'Username',
                       prefixIconPath: 'assets/icons/user.png'),
                   keyboardType: TextInputType.name,
                 ),
                 const Gap(20),
-                TextFormField(
+                TextField(
                   controller: emailController,
                   style: TextStyle(color: MyColor.styleTextFieldColor),
                   decoration: InputDecorations.buildInputDecoration(
+                      color: AdaptiveTheme.of(context).mode.isLight
+                          ? MyColor.textFieldColor
+                          : MyColor.textFieldColor.withOpacity(0.4),
                       hintText: 'Email',
                       prefixIconPath: 'assets/icons/email.png'),
                   keyboardType: TextInputType.emailAddress,
                 ),
                 const Gap(20),
-                TextFormField(
+                TextField(
                   controller: passwordController,
                   style: TextStyle(color: MyColor.styleTextFieldColor),
                   decoration: InputDecorations.buildInputDecoration(
+                          color: AdaptiveTheme.of(context).mode.isLight
+                              ? MyColor.textFieldColor
+                              : MyColor.textFieldColor.withOpacity(0.4),
                           hintText: 'Password',
                           prefixIconPath: 'assets/icons/password.png')
                       .copyWith(
