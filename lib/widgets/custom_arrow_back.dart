@@ -1,3 +1,4 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 
 import '../themes/colors.dart';
@@ -10,7 +11,7 @@ class CustomArrowBack extends StatelessWidget {
     return Row(
       children: [
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(9.0),
           child: Container(
             width: 37,
             height: 37,
@@ -18,14 +19,20 @@ class CustomArrowBack extends StatelessWidget {
               left: 2,
             ),
             decoration: BoxDecoration(
-                border: Border.all(color: MyColor.arrowBackColor, width: 2),
+                border: Border.all(
+                    color: AdaptiveTheme.of(context).mode.isLight
+                        ? MyColor.arrowBackColor
+                        : Colors.white,
+                    width: 2),
                 borderRadius: BorderRadius.circular(50)),
             child: Center(
               child: IconButton(
                 icon: Icon(
                   Icons.arrow_back_ios,
                   size: 20,
-                  color: MyColor.arrowBackColor,
+                  color: AdaptiveTheme.of(context).mode.isLight
+                      ? MyColor.arrowBackColor
+                      : Colors.white,
                 ),
                 onPressed: () {
                   Navigator.pop(context);

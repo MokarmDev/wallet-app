@@ -1,3 +1,4 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:wallet_app/themes/colors.dart';
@@ -53,7 +54,9 @@ class CustomListCard extends StatelessWidget {
                   Text(
                     title,
                     style: TextStyles.textTexStyle(
-                      color: MyColor.secondaryColor,
+                      color: AdaptiveTheme.of(context).mode.isLight
+                          ? MyColor.secondaryColor
+                          : Colors.white,
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                     ),
@@ -75,7 +78,9 @@ class CustomListCard extends StatelessWidget {
               ? Text(
                   '\$$price',
                   style: TextStyles.textTexStyle(
-                    color: Colors.black,
+                    color: AdaptiveTheme.of(context).mode.isLight
+                        ? Colors.black
+                        : MyColor.smallTextColor,
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
                   ),
@@ -83,7 +88,9 @@ class CustomListCard extends StatelessWidget {
               : iconButton ??
                   Icon(
                     Icons.arrow_forward_ios,
-                    color: MyColor.arrowForwardColor,
+                    color: AdaptiveTheme.of(context).mode.isLight
+                        ? MyColor.arrowForwardColor
+                        : Colors.white12,
                     size: 14,
                   ),
         ],

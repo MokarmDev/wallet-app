@@ -1,3 +1,4 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:wallet_app/themes/colors.dart';
@@ -21,6 +22,9 @@ class _IncomeStatsViewState extends State<IncomeStatsView> {
         title: Text(
           'Income Stats',
           style: TextStyles.titleTexStyle(
+            color: AdaptiveTheme.of(context).mode.isLight
+                ? MyColor.primaryColor
+                : Colors.white,
             fontSize: 18,
             fontWeight: FontWeight.w500,
           ),
@@ -80,7 +84,9 @@ class _IncomeStatsViewState extends State<IncomeStatsView> {
                   Text(
                     '\$ 13.248',
                     style: TextStyles.textTexStyle(
-                      color: MyColor.purpleColor,
+                      color: AdaptiveTheme.of(context).mode.isLight
+                          ? MyColor.primaryColor
+                          : Colors.white,
                       fontSize: 36,
                       fontWeight: FontWeight.w500,
                     ),

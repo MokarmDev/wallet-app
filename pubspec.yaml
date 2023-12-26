@@ -18,6 +18,7 @@ dependencies:
   gap: ^3.0.1
   dot_navigation_bar: ^1.0.2
   image_picker: ^1.0.5
+  adaptive_theme: ^3.4.1
 
 
 

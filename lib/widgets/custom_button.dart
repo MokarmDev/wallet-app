@@ -1,3 +1,4 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 
 import '../themes/colors.dart';
@@ -18,7 +19,9 @@ class CustomButton extends StatelessWidget {
         height: 55,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            color: MyColor.primaryColor),
+            color: AdaptiveTheme.of(context).mode.isLight
+                ? MyColor.primaryColor
+                : Colors.white12),
         child: Center(
           child: Text(
             text,

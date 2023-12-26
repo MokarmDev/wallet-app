@@ -1,8 +1,10 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+import '../themes/colors.dart';
 import '../themes/text_styles.dart';
-import '../widgets/custom_appBar.dart';
+import '../widgets/custom_arrow_back.dart';
 import '../widgets/custom_card_notification.dart';
 
 class NotificationView extends StatelessWidget {
@@ -13,11 +15,9 @@ class NotificationView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(60),
-        child: isSetting!
-            ? const CustomAppBar()
-            : AppBar(scrolledUnderElevation: 0),
+      appBar: AppBar(
+        scrolledUnderElevation: 0,
+        leading: isSetting! ? const CustomArrowBack() : const SizedBox(),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -28,6 +28,9 @@ class NotificationView extends StatelessWidget {
                 child: Text(
                   'Notification',
                   style: TextStyles.titleTexStyle(
+                    color: AdaptiveTheme.of(context).mode.isLight
+                        ? MyColor.primaryColor
+                        : Colors.white,
                     fontSize: 24,
                   ),
                 ),
@@ -41,6 +44,9 @@ class NotificationView extends StatelessWidget {
                 child: Text(
                   'New',
                   style: TextStyles.titleTexStyle(
+                    color: AdaptiveTheme.of(context).mode.isLight
+                        ? MyColor.primaryColor
+                        : Colors.white,
                     fontSize: 20,
                     fontWeight: FontWeight.w500,
                   ),
@@ -72,6 +78,9 @@ class NotificationView extends StatelessWidget {
                     child: Text(
                       'Recent',
                       style: TextStyles.titleTexStyle(
+                        color: AdaptiveTheme.of(context).mode.isLight
+                            ? MyColor.primaryColor
+                            : Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.w500,
                       ),

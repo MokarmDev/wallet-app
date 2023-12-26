@@ -1,3 +1,4 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:wallet_app/themes/colors.dart';
@@ -36,6 +37,9 @@ class _SignUpViewState extends State<SignUpView> {
                   child: Text(
                     'Immediately feel the \n ease of transacting just \n by registering',
                     style: TextStyles.titleTexStyle(
+                      color: AdaptiveTheme.of(context).mode.isLight
+                          ? MyColor.primaryColor
+                          : Colors.white,
                       fontWeight: FontWeight.w500,
                       fontSize: 24,
                     ),
@@ -134,7 +138,9 @@ class _SignUpViewState extends State<SignUpView> {
                       },
                       child: Text('Login',
                           style: TextStyles.textTexStyle(
-                              color: MyColor.primaryColor)),
+                              color: AdaptiveTheme.of(context).mode.isLight
+                                  ? MyColor.primaryColor
+                                  : Colors.white)),
                     ),
                   ],
                 ),

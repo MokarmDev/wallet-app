@@ -1,3 +1,4 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 
 import '../themes/colors.dart';
@@ -21,7 +22,9 @@ class CustomSectionTitle extends StatelessWidget {
           Text(
             title,
             style: TextStyles.textTexStyle(
-                color: MyColor.secondaryColor,
+                color: AdaptiveTheme.of(context).mode.isLight
+                    ? MyColor.primaryColor
+                    : Colors.white,
                 fontSize: 18,
                 fontWeight: FontWeight.w700),
           ),
@@ -30,7 +33,9 @@ class CustomSectionTitle extends StatelessWidget {
             child: Text(
               subTitle,
               style: TextStyles.textTexStyle(
-                color: MyColor.purpleColor,
+                color: AdaptiveTheme.of(context).mode.isLight
+                    ? MyColor.primaryColor
+                    : Colors.white,
                 fontSize: 13,
               ),
             ),

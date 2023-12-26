@@ -1,3 +1,4 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -26,7 +27,9 @@ class CustomCardNotification extends StatelessWidget {
       width: 310,
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AdaptiveTheme.of(context).mode.isLight
+            ? Colors.white
+            : Colors.white12,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
@@ -55,7 +58,10 @@ class CustomCardNotification extends StatelessWidget {
                     Expanded(
                       child: Text(
                         title,
-                        style: TextStyles.textTexStyle(color: Colors.black),
+                        style: TextStyles.textTexStyle(
+                            color: AdaptiveTheme.of(context).mode.isLight
+                                ? Colors.black
+                                : Colors.white),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),

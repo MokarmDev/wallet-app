@@ -1,10 +1,13 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:wallet_app/screens/add_card_payment_screen.dart';
 import 'package:wallet_app/screens/detail_card_screen.dart';
 import 'package:wallet_app/themes/colors.dart';
 import 'package:wallet_app/themes/text_styles.dart';
 
 import '../widgets/custom_builder_list_payment.dart';
+import '../widgets/custom_button_toggle.dart';
 import '../widgets/custom_process_card.dart';
 import '../widgets/custom_section_title.dart';
 
@@ -19,14 +22,16 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(150),
-        child: BuildAppBar(),
+      appBar: AppBar(
+        leading: CustomButtonToggle(),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30.0),
         child: CustomScrollView(
           slivers: [
+            const SliverToBoxAdapter(
+              child: BuildTopAppBar(),
+            ),
             const SliverToBoxAdapter(
               child: TopCard(),
             ),
@@ -34,28 +39,35 @@ class _HomeViewState extends State<HomeView> {
               child: Gap(25),
             ),
             SliverList.list(
-              children: const [
+              children: [
                 Row(
                   children: [
                     Expanded(
                       child: CustomProcessCard(
-                          imagePath: 'assets/icons/add_circle.png',
-                          title: 'Top up'),
+                        imagePath: 'assets/icons/add_circle.png',
+                        title: 'Top up',
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => const AddCardPaymentView()));
+                        },
+                      ),
                     ),
-                    Gap(40),
-                    Expanded(
+                    const Gap(40),
+                    const Expanded(
                       child: CustomProcessCard(
                           imagePath: 'assets/icons/transfer.png',
                           title: 'Transfer'),
                     ),
-                    Gap(40),
-                    Expanded(
+                    const Gap(40),
+                    const Expanded(
                       child: CustomProcessCard(
                           imagePath: 'assets/icons/export.png',
                           title: 'Payment'),
                     ),
-                    Gap(40),
-                    Expanded(
+                    const Gap(40),
+                    const Expanded(
                       child: CustomProcessCard(
                           imagePath: 'assets/icons/money.png', title: 'Payout'),
                     ),
@@ -84,23 +96,25 @@ class _HomeViewState extends State<HomeView> {
   }
 }
 
-class BuildAppBar extends StatelessWidget {
-  const BuildAppBar({super.key});
+class BuildTopAppBar extends StatelessWidget {
+  const BuildTopAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30),
+      padding: const EdgeInsets.symmetric(vertical: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Gap(70),
               Text(
                 'Wallet',
                 style: TextStyles.titleTexStyle(
+                  color: AdaptiveTheme.of(context).mode.isLight
+                      ? MyColor.primaryColor
+                      : Colors.white,
                   fontSize: 24,
                 ),
               ),
@@ -138,7 +152,9 @@ class TopCard extends StatelessWidget {
         height: 160,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(50),
-            color: MyColor.primaryColor),
+            color: AdaptiveTheme.of(context).mode.isLight
+                ? MyColor.primaryColor
+                : Colors.white12),
         child: Stack(
           children: [
             Positioned(
@@ -150,7 +166,11 @@ class TopCard extends StatelessWidget {
                   height: 150,
                   width: 150,
                   decoration: BoxDecoration(
-                    border: Border.all(color: MyColor.purpleColor, width: 3),
+                    border: Border.all(
+                        color: AdaptiveTheme.of(context).mode.isLight
+                            ? MyColor.purpleColor
+                            : Colors.white12,
+                        width: 3),
                     shape: BoxShape.circle,
                   ),
                 ),
@@ -164,8 +184,10 @@ class TopCard extends StatelessWidget {
                 child: Container(
                   width: 50,
                   height: 50,
-                  decoration: const BoxDecoration(
-                    color: Color(0xff6E34B8),
+                  decoration: BoxDecoration(
+                    color: AdaptiveTheme.of(context).mode.isLight
+                        ? const Color(0xff6E34B8)
+                        : Colors.white12,
                     shape: BoxShape.circle,
                   ),
                 ),

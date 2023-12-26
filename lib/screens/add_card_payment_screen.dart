@@ -1,9 +1,10 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:wallet_app/themes/colors.dart';
 import 'package:wallet_app/themes/text_styles.dart';
 
-import '../widgets/custom_appBar.dart';
+import '../widgets/custom_arrow_back.dart';
 
 class AddCardPaymentView extends StatelessWidget {
   const AddCardPaymentView({super.key});
@@ -11,9 +12,9 @@ class AddCardPaymentView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(60),
-        child: CustomAppBar(),
+      appBar: AppBar(
+        scrolledUnderElevation: 0,
+        leading: const CustomArrowBack(),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30.0),
@@ -24,8 +25,10 @@ class AddCardPaymentView extends StatelessWidget {
               child: Text(
                 'Add Card',
                 style: TextStyles.titleTexStyle(
-                  fontSize: 24,
-                ),
+                    fontSize: 24,
+                    color: AdaptiveTheme.of(context).mode.isLight
+                        ? MyColor.primaryColor
+                        : Colors.white),
               ),
             ),
             const Gap(30),
@@ -34,7 +37,9 @@ class AddCardPaymentView extends StatelessWidget {
             Text(
               'Add a new card \n on your wallet for easy life',
               style: TextStyles.textTexStyle(
-                color: Colors.black,
+                color: AdaptiveTheme.of(context).mode.isLight
+                    ? Colors.black
+                    : MyColor.smallTextColor,
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
               ),
@@ -56,7 +61,10 @@ class CardPayment extends StatelessWidget {
       width: 240,
       height: 340,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(45), color: MyColor.primaryColor),
+          borderRadius: BorderRadius.circular(45),
+          color: AdaptiveTheme.of(context).mode.isLight
+              ? MyColor.primaryColor
+              : Colors.white12),
       child: Stack(
         children: [
           Positioned(
@@ -68,7 +76,11 @@ class CardPayment extends StatelessWidget {
                 height: 170,
                 width: 170,
                 decoration: BoxDecoration(
-                  border: Border.all(color: const Color(0xffD71CDB), width: 3),
+                  border: Border.all(
+                      color: AdaptiveTheme.of(context).mode.isLight
+                          ? const Color(0xffD71CDB)
+                          : Colors.white12,
+                      width: 3),
                   shape: BoxShape.circle,
                 ),
               ),
@@ -82,8 +94,10 @@ class CardPayment extends StatelessWidget {
               child: Container(
                 width: 120,
                 height: 115,
-                decoration: const BoxDecoration(
-                  color: Color(0xff6E34B8),
+                decoration: BoxDecoration(
+                  color: AdaptiveTheme.of(context).mode.isLight
+                      ? const Color(0xff6E34B8)
+                      : Colors.white12,
                   shape: BoxShape.circle,
                 ),
               ),
@@ -98,8 +112,11 @@ class CardPayment extends StatelessWidget {
                 width: 100,
                 height: 100,
                 decoration: BoxDecoration(
-                    border:
-                        Border.all(color: const Color(0xff9038FF), width: 2),
+                    border: Border.all(
+                        color: AdaptiveTheme.of(context).mode.isLight
+                            ? const Color(0xff9038FF)
+                            : Colors.white12,
+                        width: 2),
                     shape: BoxShape.circle),
               ),
             ),

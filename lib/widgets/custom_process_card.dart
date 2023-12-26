@@ -1,3 +1,4 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -22,16 +23,24 @@ class CustomProcessCard extends StatelessWidget {
       children: [
         CustomCircleCard(
           image: imagePath,
-          onPressed: () {},
+          onPressed: onPressed,
+          color: AdaptiveTheme.of(context).mode.isLight
+              ? Colors.white
+              : Colors.white12,
+          colorImage: AdaptiveTheme.of(context).mode.isLight
+              ? MyColor.primaryColor
+              : Colors.white,
         ),
         const Gap(15),
         Text(
           title,
           style: TextStyles.textTexStyle(
-            color: MyColor.purpleColor,
+            color: AdaptiveTheme.of(context).mode.isLight
+                ? MyColor.primaryColor
+                : Colors.white70,
             fontSize: 13,
           ),
-        )
+        ),
       ],
     );
   }

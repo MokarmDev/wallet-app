@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 
 class MyColor {
-  static final darkBlue = Color(0xFF1E1E2C);
-  static final lightBlue = Color(0xFF2D2D44);
-
   static Color primaryColor = const Color(0xff5B259F);
   static Color secondaryColor = const Color(0xff130138);
   static Color purpleColor = const Color(0xff8438ff);

@@ -9,11 +9,10 @@ class InputDecorations {
     return InputDecoration(
       hintText: hintText,
       hintStyle: TextStyles.textFiledTexStyle(),
-      filled: true,
-      fillColor: MyColor.textFieldColor,
       enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: MyColor.textFieldColor, width: 2)),
+          borderSide: BorderSide(
+              color: MyColor.textFieldColor.withOpacity(0.4), width: 2)),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(15),
       ),

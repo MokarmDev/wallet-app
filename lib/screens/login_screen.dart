@@ -1,3 +1,4 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:wallet_app/screens/main_view.dart';
@@ -8,6 +9,7 @@ import 'package:wallet_app/themes/text_styles.dart';
 import 'package:wallet_app/widgets/custom_container.dart';
 
 import '../widgets/custom_button.dart';
+import '../widgets/custom_button_toggle.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -18,12 +20,19 @@ class LoginView extends StatefulWidget {
 
 class _LoginViewState extends State<LoginView> {
   bool obscureText = true;
+
   TextEditingController userNameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          scrolledUnderElevation: 0,
+          leading: const CustomButtonToggle(),
+        ),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 14),
@@ -37,6 +46,9 @@ class _LoginViewState extends State<LoginView> {
                   child: Text(
                     'Welcome back  \n to Mabank Wallet',
                     style: TextStyles.titleTexStyle(
+                      color: AdaptiveTheme.of(context).mode.isLight
+                          ? MyColor.primaryColor
+                          : Colors.white,
                       fontWeight: FontWeight.w500,
                       fontSize: 24,
                     ),
@@ -130,7 +142,9 @@ class _LoginViewState extends State<LoginView> {
                       },
                       child: Text('Register',
                           style: TextStyles.textTexStyle(
-                              color: MyColor.primaryColor)),
+                              color: AdaptiveTheme.of(context).mode.isLight
+                                  ? MyColor.primaryColor
+                                  : Colors.white)),
                     ),
                   ],
                 ),

@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:image_picker/image_picker.dart';
@@ -8,7 +9,7 @@ import 'package:wallet_app/widgets/custom_circle_card.dart';
 import 'package:wallet_app/widgets/custom_list_card.dart';
 
 import '../themes/text_styles.dart';
-import '../widgets/custom_appBar.dart';
+import '../widgets/custom_arrow_back.dart';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({super.key});
@@ -32,9 +33,8 @@ class _ProfileViewState extends State<ProfileView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(60),
-        child: CustomAppBar(),
+      appBar: AppBar(
+        leading: const CustomArrowBack(),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -50,7 +50,9 @@ class _ProfileViewState extends State<ProfileView> {
                     height: 100,
                     width: 100,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: AdaptiveTheme.of(context).mode.isLight
+                          ? Colors.white
+                          : Colors.white12,
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
@@ -66,7 +68,10 @@ class _ProfileViewState extends State<ProfileView> {
                             child: Text(
                               'No image selected',
                               style: TextStyles.textTexStyle(
-                                  fontSize: 10, color: MyColor.darkPurpleColor),
+                                  fontSize: 10,
+                                  color: AdaptiveTheme.of(context).mode.isLight
+                                      ? MyColor.darkPurpleColor
+                                      : Colors.white),
                               textAlign: TextAlign.center,
                             ),
                           )
@@ -118,14 +123,14 @@ class _ProfileViewState extends State<ProfileView> {
                 title: 'Service Center',
               ),
               const Gap(150),
-              InkWell(
-                onTap: () {},
-                child: const CustomCircleCard(
-                  image: 'assets/icons/delete.png',
-                  colorImage: Colors.redAccent,
-                  height: 65,
-                  width: 65,
-                ),
+              CustomCircleCard(
+                image: 'assets/icons/delete.png',
+                colorImage: Colors.redAccent,
+                color: AdaptiveTheme.of(context).mode.isLight
+                    ? Colors.white
+                    : Colors.white12,
+                height: 65,
+                width: 65,
               ),
               const Gap(15),
               Text(

@@ -1,3 +1,4 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:wallet_app/screens/home_screen.dart';
@@ -43,7 +44,9 @@ class _MainViewState extends State<MainView> {
           splashBorderRadius: 50,
           paddingR: const EdgeInsets.all(3),
           marginR: const EdgeInsets.all(1),
-          backgroundColor: MyColor.darkPurpleColor,
+          backgroundColor: AdaptiveTheme.of(context).mode.isLight
+              ? MyColor.darkPurpleColor
+              : Colors.white12,
           onTap: _onItemTapped,
           items: [
             /// Home

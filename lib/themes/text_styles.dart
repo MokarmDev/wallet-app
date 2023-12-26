@@ -5,10 +5,11 @@ class TextStyles {
   static TextStyle titleTexStyle({
     double fontSize = 13,
     FontWeight fontWeight = FontWeight.w500,
+    required Color color,
   }) {
     return TextStyle(
       fontSize: fontSize,
-      color: MyColor.secondaryColor,
+      color: color,
       fontWeight: fontWeight,
     );
   }

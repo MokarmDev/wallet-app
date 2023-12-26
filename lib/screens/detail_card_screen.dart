@@ -1,9 +1,10 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../themes/colors.dart';
 import '../themes/text_styles.dart';
-import '../widgets/custom_appBar.dart';
+import '../widgets/custom_arrow_back.dart';
 
 class DetailCardView extends StatelessWidget {
   const DetailCardView({super.key});
@@ -11,9 +12,9 @@ class DetailCardView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(60),
-          child: CustomAppBar(),
+        appBar: AppBar(
+          scrolledUnderElevation: 0,
+          leading: const CustomArrowBack(),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -24,6 +25,9 @@ class DetailCardView extends StatelessWidget {
                 child: Text(
                   'Detail Card',
                   style: TextStyles.titleTexStyle(
+                    color: AdaptiveTheme.of(context).mode.isLight
+                        ? MyColor.primaryColor
+                        : Colors.white,
                     fontSize: 24,
                   ),
                 ),
@@ -73,7 +77,10 @@ class CardSquare extends StatelessWidget {
       width: 311,
       height: 220,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(45), color: MyColor.primaryColor),
+          borderRadius: BorderRadius.circular(45),
+          color: AdaptiveTheme.of(context).mode.isLight
+              ? MyColor.primaryColor
+              : Colors.white12),
       child: Stack(
         children: [
           Positioned(
@@ -85,7 +92,11 @@ class CardSquare extends StatelessWidget {
                 height: 170,
                 width: 170,
                 decoration: BoxDecoration(
-                  border: Border.all(color: const Color(0xffD71CDB), width: 3),
+                  border: Border.all(
+                      color: AdaptiveTheme.of(context).mode.isLight
+                          ? const Color(0xffD71CDB)
+                          : Colors.white12,
+                      width: 3),
                   shape: BoxShape.circle,
                 ),
               ),
@@ -99,8 +110,10 @@ class CardSquare extends StatelessWidget {
               child: Container(
                 width: 100,
                 height: 100,
-                decoration: const BoxDecoration(
-                  color: Color(0xff6E34B8),
+                decoration: BoxDecoration(
+                  color: AdaptiveTheme.of(context).mode.isLight
+                      ? const Color(0xff6E34B8)
+                      : Colors.white12,
                   shape: BoxShape.circle,
                 ),
               ),
@@ -176,7 +189,9 @@ class ListInfo extends StatelessWidget {
           Text(
             subTitle,
             style: TextStyles.textTexStyle(
-              color: Colors.black,
+              color: AdaptiveTheme.of(context).mode.isLight
+                  ? Colors.black
+                  : MyColor.smallTextColor,
               fontSize: 16,
               fontWeight: FontWeight.w500,
             ),
