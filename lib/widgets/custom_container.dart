@@ -1,3 +1,4 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:wallet_app/themes/text_styles.dart';
@@ -32,7 +33,9 @@ class CustomContainer extends StatelessWidget {
           borderRadius: BorderRadius.circular(borderRadius),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.2), //color of shadow
+              color: AdaptiveTheme.of(context).mode.isLight
+                  ? Colors.grey.withOpacity(0.1)
+                  : Colors.transparent, //color of shadow
               spreadRadius: 5,
               blurRadius: 7,
               offset: const Offset(0, 2),
