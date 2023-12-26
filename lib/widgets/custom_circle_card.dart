@@ -1,3 +1,4 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 
 class CustomCircleCard extends StatelessWidget {
@@ -27,7 +28,9 @@ class CustomCircleCard extends StatelessWidget {
         color: color,
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.1), //color of shadow
+            color: AdaptiveTheme.of(context).mode.isLight
+                ? Colors.grey.withOpacity(0.1)
+                : Colors.transparent, //color of shadow
             spreadRadius: 3,
             blurRadius: 5,
             offset: const Offset(0, 3),

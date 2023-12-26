@@ -45,7 +45,7 @@ class NotificationView extends StatelessWidget {
                   'New',
                   style: TextStyles.titleTexStyle(
                     color: AdaptiveTheme.of(context).mode.isLight
-                        ? MyColor.primaryColor
+                        ? MyColor.secondaryColor
                         : Colors.white,
                     fontSize: 20,
                     fontWeight: FontWeight.w500,
@@ -79,7 +79,7 @@ class NotificationView extends StatelessWidget {
                       'Recent',
                       style: TextStyles.titleTexStyle(
                         color: AdaptiveTheme.of(context).mode.isLight
-                            ? MyColor.primaryColor
+                            ? MyColor.secondaryColor
                             : Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.w500,

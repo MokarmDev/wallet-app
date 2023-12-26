@@ -38,7 +38,7 @@ class CustomProcessCard extends StatelessWidget {
             color: AdaptiveTheme.of(context).mode.isLight
                 ? MyColor.primaryColor
                 : Colors.white70,
-            fontSize: 13,
+            fontSize: 12,
           ),
         ),
       ],
