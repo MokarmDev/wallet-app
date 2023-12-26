@@ -9,7 +9,6 @@ import 'package:wallet_app/themes/text_styles.dart';
 import 'package:wallet_app/widgets/custom_container.dart';
 
 import '../widgets/custom_button.dart';
-import '../widgets/custom_button_toggle.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -28,11 +27,6 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          scrolledUnderElevation: 0,
-          leading: const CustomButtonToggle(),
-        ),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 14),
