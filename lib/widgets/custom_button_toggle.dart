@@ -9,17 +9,17 @@ class CustomButtonToggle extends StatefulWidget {
 }
 
 class _CustomButtonToggleState extends State<CustomButtonToggle> {
-  bool value = false;
+  bool value = true;
   @override
   Widget build(BuildContext context) {
     return IconButton(
         onPressed: () {
           setState(() {
             value = !value;
+            value
+                ? AdaptiveTheme.of(context).setLight()
+                : AdaptiveTheme.of(context).setDark();
           });
-          value
-              ? AdaptiveTheme.of(context).setLight()
-              : AdaptiveTheme.of(context).setDark();
         },
         icon: Icon(value ? Icons.dark_mode : Icons.sunny));
   }

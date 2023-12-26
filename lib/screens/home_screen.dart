@@ -23,7 +23,9 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: CustomButtonToggle(),
+        scrolledUnderElevation: 0,
+        elevation: 0,
+        leading: const CustomButtonToggle(),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30.0),
